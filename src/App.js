@@ -2,10 +2,13 @@ import React, {useState} from 'react';
 import Joke from './Joke';
 import './App.css';
 import News from './News';
+import Tasks from './Tasks';
+import Gallery from './Gallery';
+import Matrix from './Matrix';
 
 function App() {
   const[userQuery,setUserQuery] = useState('');
-
+  const [showGallery, setShowGallery] = useState(true);
   const updateUserQuery = event => {
     console.log('userQuery', userQuery);
     setUserQuery(event.target.value);
@@ -21,6 +24,10 @@ function App() {
     }
   }
 
+  const toggleShowGallery = ()=>{
+    setShowGallery(!showGallery);
+  }
+
   return (
     <div className="App">
       <h1>
@@ -33,6 +40,19 @@ function App() {
       <hr/>
       <Joke/>
       <hr/>
+      <Tasks/>
+      <hr/>
+      <div>
+        {showGallery? <Gallery/> : null
+        }
+        <button onClick={toggleShowGallery}>
+          {showGallery?'Hide':'Show'} Gallery
+        </button>
+      </div>
+      <hr/>
+      <Matrix/>
+      <hr/>
+
       <News/>
     </div>
   );
