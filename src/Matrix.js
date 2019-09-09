@@ -21,7 +21,6 @@ function Matrix(){
     const increment = Number(event.target.value);
     setIncrement(increment<minimumIncrement? minimumIncrement:increment);
   }
-  console.log('Matrix index', index,'delay',delay, 'increment',increment);
 
   return(
     <div className='Matrix'>
